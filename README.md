@@ -15,6 +15,7 @@ The use of this application requires insominia. users can perform Get, Put, Post
 
 ## Features
 [Video link](https://drive.google.com/file/d/13I49oZRqJXX74FoO_0OyycENWl_sUhBU/view) 
+![Screenshot](./screenshot.jpg)
 - create user
 - delete user 
 - update user
