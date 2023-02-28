@@ -7,11 +7,13 @@ In this challenge, we learned about mongoDB. We learned how to create CRUD comma
 ## Installation
 - requires mongooose 
 - requires express
+- requires node.js
+- requires express
 
 ## Usage
 The use of this application requires insominia. users can perform Get, Put, Post, Delete commands to update the DB
 
-##Features
+## Features
 
 - create user
 - delete user 
