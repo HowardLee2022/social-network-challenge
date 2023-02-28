@@ -1,13 +1,13 @@
 const { User, Course } = require('../models');
 
 module.exports = {
-  // Get all students
+  // Get all user
   getUser(req, res) {
     User.find()
       .then((user) => res.json(user))
       .catch((err) => res.status(500).json(err));
   },
-  // Get a single student
+  // Get a single user
   getSingleUser(req, res) {
     User.findOne({ _id: req.params.userId })
       .select('-__v')
@@ -18,7 +18,7 @@ module.exports = {
       )
       .catch((err) => res.status(500).json(err));
   },
-  // create a new student
+  // create a new user
   createUser(req, res) {
     User.create(req.body)
       .then((user) => res.json(user))
@@ -26,7 +26,7 @@ module.exports = {
   },
 
 
-  // Delete a student and remove them from the course
+  // Delete a user
   deleteUser(req, res) {
     User.findOneAndRemove({ _id: req.params.userId })
       .then((user) =>
@@ -40,7 +40,7 @@ module.exports = {
       });
   },
 
-
+//updates a user
   updateUser(req, res) {
     User.findOneAndUpdate(
         { _id: req.params.userId },
@@ -56,7 +56,7 @@ module.exports = {
 },
 
 
-
+//add a follower to a user
 addFriend(req, res) {
   User.findOneAndUpdate(
       { _id: req.params.userId },
@@ -73,7 +73,7 @@ addFriend(req, res) {
       .catch((err) => res.status(500).json(err));
 },
 
-
+//remove the follower to a user
 removeFriend(req, res) {
   User.findOneAndUpdate(
       { _id: req.params.userId },

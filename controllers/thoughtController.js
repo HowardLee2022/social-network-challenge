@@ -8,8 +8,6 @@ module.exports = {
       .catch((err) => res.status(500).json(err));
   },
   // Get a course
-
-
   getSingleThought(req, res) {
     Thoughts.findOne({ _id: req.params.thoughtId })
       .select('-__v')
@@ -23,7 +21,7 @@ module.exports = {
 
 
 
-
+//Create a thought
   createThought(req, res) {
     Thoughts.create(req.body)
         .then((thoughts) => {
@@ -47,7 +45,7 @@ module.exports = {
 },
 
 
-
+//Delete a thought
   deleteThought(req, res) {
     Thoughts.findOneAndDelete({ _id: req.params.thoughtId })
         .then((thoughts) =>
@@ -69,7 +67,7 @@ module.exports = {
 
 
 
-  // Update a course
+  // Update a thought
   updateThought(req, res) {
     Thoughts.findOneAndUpdate(
       { _id: req.params.thoughtId },
@@ -85,7 +83,7 @@ module.exports = {
   },
 
 
-
+//create a reaction
 addReaction(req, res) {
   Thoughts.findOneAndUpdate(
       { _id: req.params.thoughtId },
@@ -99,7 +97,7 @@ addReaction(req, res) {
   )
   .catch((err) => res.status(500).json(err));
 },
-
+// removes a reaction
 removeReaction(req, res) {
   Thoughts.findOneAndUpdate(
       { _id: req.params.thoughtId, 'reactions.reactionId': req.params.reactionId },
